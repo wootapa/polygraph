@@ -1,0 +1,65 @@
+{
+  "name": "@wootapa/polygraph",
+  "version": "1.0.0",
+  "description": "Tests objects with queries constructed using logical and comparison operators.",
+  "types": "dist/polygraph.d.ts",
+  "main": "dist/polygraph.umd.js",
+  "unpkg": "dist/polygraph.umd.js",
+  "module": "dist/polygraph.esm.js",
+  "browser": "dist/polygraph.esm.js",
+  "scripts": {
+    "start": "npm run build",
+    "lint": "eslint --fix --ext .ts ./src && eslint --fix --ext .ts ./test",
+    "test": "mocha -r performance-now -r ts-node/register test/*.spec.ts",
+    "build": "npm run lint && rollup -c"
+  },
+  "files": [
+    "dist/**/*.{js,map,ts}"
+  ],
+  "browserslist": [
+    "defaults",
+    "not IE 11",
+    "not IE_Mob 11",
+    "maintained node versions"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wootapa/polygraph.git"
+  },
+  "keywords": [
+    "WootApa",
+    "Evaluate",
+    "Logical",
+    "Comparison"
+  ],
+  "author": "Andreas Petersson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wootapa/polygraph/issues"
+  },
+  "homepage": "https://github.com/wootapa/polygraph#readme",
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^21.0.1",
+    "@rollup/plugin-node-resolve": "^13.1.1",
+    "@types/chai": "^4.3.0",
+    "@types/mocha": "^9.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.8.0",
+    "@typescript-eslint/parser": "^5.8.0",
+    "chai": "^4.3.4",
+    "eslint": "^8.5.0",
+    "eslint-config-typescript": "^3.0.0",
+    "mocha": "^9.1.3",
+    "rollup": "^2.10.7",
+    "rollup-plugin-cleaner": "^1.0.0",
+    "rollup-plugin-copy": "^3.4.0",
+    "rollup-plugin-sourcemaps": "^0.6.3",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.31.1",
+    "ts-node": "^10.4.0",
+    "tslib": "^2.3.1",
+    "typescript": "^4.5.4"
+  },
+  "dependencies": {
+    "performance-now": "^2.1.0"
+  }
+}
