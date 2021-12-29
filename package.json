@@ -1,6 +1,6 @@
 {
   "name": "@wootapa/polygraph",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Tests objects with queries constructed using logical and comparison operators.",
   "types": "dist/polygraph.d.ts",
   "main": "dist/polygraph.umd.js",
