@@ -92,7 +92,7 @@ export abstract class Comparison extends KeyValue implements IEvaluatable, IJson
     }
 }
 
-// Exports to be implemented in evaluator
+// Exports to be implemented in Polygraph
 export interface IComparison<T> {
     equals(key: string, value: PrimitiveThing): T;
     isNull(key: string): T;

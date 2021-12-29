@@ -22,7 +22,7 @@ $ npm install --save @wootapa/polygraph
 For old browsers and node12 (umd):
 ```javascript
 <script src="https://unpkg.com/@wootapa/polygraph"></script>
-// waoe.and() ...
+// polygraph.and() ...
 ```
 
 ## Methods
