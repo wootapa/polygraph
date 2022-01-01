@@ -14,16 +14,21 @@ Polygraph is quite flexible and can:
 
 ## Installation
 
-New browsers, bundlers and node14+ (es):
+Modern browsers and bundlers (es):
 ```shell
 $ npm install --save @wootapa/polygraph
 ```
+```typescript
+import { Polygraph } from '@wootapa/polygraph';
+// Polygraph.and()... (types included)
+```
 
-For old browsers and node12 (umd):
+Legacy (umd):
 ```javascript
 <script src="https://unpkg.com/@wootapa/polygraph"></script>
-// polygraph.and() ...
+// polygraph.and()...
 ```
+
 
 ## Methods
 
