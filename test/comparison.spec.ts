@@ -1,4 +1,7 @@
-import { expect } from 'chai';
+/**
+ * @jest-environment jsdom
+ */
+
 import { and } from '../src/polygraph';
 
 const person = {
@@ -14,7 +17,7 @@ describe('equal', () => {
             .done()
             .evaluate(person);
 
-        expect(result).true;
+        expect(result).toBe(true);
     });
     it('should not equal', () => {
         const result = and()
@@ -22,7 +25,7 @@ describe('equal', () => {
             .done()
             .evaluate(person);
 
-        expect(result).false;
+        expect(result).toBe(false);
     });
 });
 
@@ -34,7 +37,7 @@ describe('null', () => {
             .done()
             .evaluate(person);
 
-        expect(result).true;
+        expect(result).toBe(true);
     });
 });
 
@@ -45,7 +48,7 @@ describe('greater', () => {
             .done()
             .evaluate(person);
 
-        expect(result).true;
+        expect(result).toBe(true);
     });
     it('should not be greater', () => {
         const result = and()
@@ -53,7 +56,7 @@ describe('greater', () => {
             .done()
             .evaluate(person);
 
-        expect(result).false;
+        expect(result).toBe(false);
     });
     it('should be greater or equal', () => {
         const result = and()
@@ -61,7 +64,7 @@ describe('greater', () => {
             .done()
             .evaluate(person);
 
-        expect(result).true;
+        expect(result).toBe(true);
     });
     it('should not be greater or equal', () => {
         const result = and()
@@ -69,7 +72,7 @@ describe('greater', () => {
             .done()
             .evaluate(person);
 
-        expect(result).false;
+        expect(result).toBe(false);
     });
 });
 
@@ -80,7 +83,7 @@ describe('less', () => {
             .done()
             .evaluate(person);
 
-        expect(result).true;
+        expect(result).toBe(true);
     });
     it('should not be less', () => {
         const result = and()
@@ -90,7 +93,7 @@ describe('less', () => {
             .done()
             .evaluate(person);
 
-        expect(result).false;
+        expect(result).toBe(false);
     });
     it('should be less or equal', () => {
         const result = and()
@@ -98,7 +101,7 @@ describe('less', () => {
             .done()
             .evaluate(person);
 
-        expect(result).true;
+        expect(result).toBe(true);
     });
     it('should not be less or equal', () => {
         const result = and()
@@ -106,7 +109,7 @@ describe('less', () => {
             .done()
             .evaluate(person);
 
-        expect(result).false;
+        expect(result).toBe(false);
     });
 });
 
@@ -117,7 +120,7 @@ describe('any', () => {
             .done()
             .evaluate(person);
 
-        expect(result).true;
+        expect(result).toBe(true);
     });
 });
 
@@ -128,7 +131,7 @@ describe('like', () => {
             .done()
             .evaluate(person);
 
-        expect(result).true;
+        expect(result).toBe(true);
     });
     it('should not contain word', () => {
         const result = and()
@@ -137,7 +140,7 @@ describe('like', () => {
             .done()
             .evaluate(person);
 
-        expect(result).false;
+        expect(result).toBe(false);
     });
     it('should contain word case insensitive', () => {
         const result = and()
@@ -146,7 +149,7 @@ describe('like', () => {
             .done()
             .evaluate(person);
 
-        expect(result).true;
+        expect(result).toBe(true);
     });
     it('should contain words case insensitive and wildcards', () => {
         const result = and()
@@ -154,7 +157,7 @@ describe('like', () => {
             .done()
             .evaluate(person);
 
-        expect(result).true;
+        expect(result).toBe(true);
     });
     it('aliases', () => {
         const result = and().operator('eq', 'age', person.age)
@@ -168,6 +171,6 @@ describe('like', () => {
             .done()
             .evaluate(person);
 
-        expect(result).true;
+        expect(result).toBe(true);
     });
 });

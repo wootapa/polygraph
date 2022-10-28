@@ -1,4 +1,7 @@
-import { expect } from 'chai';
+/**
+ * @jest-environment jsdom
+ */
+
 import { and, fromJson } from '../src/polygraph';
 
 const person = {
@@ -19,21 +22,20 @@ describe('polygraph', () => {
     it('polygraph and json-polygraph evaluates same', () => {
         const result1 = polygraph1.evaluate(person);
         const result2 = polygraph2.evaluate(person);
-        expect(result1)
-            .eq(result2);
+        
+        expect(result1).toEqual(result2);
     });
     it('polygraph and json-polygraph same json', () => {
         const result1 = JSON.stringify(polygraph1.asJson());
         const result2 = JSON.stringify(polygraph2.asJson());
-        expect(result1)
-            .eq(result2);
+        
+        expect(result1).toEqual(result2);
     });
     it('polygraph and clone polygraph same', () => {
         const result1 = JSON.stringify(polygraph1.asJson());
-        const result2 = JSON.stringify(polygraph1.clone()
-            .asJson());
-        expect(result1)
-            .eq(result2);
+        const result2 = JSON.stringify(polygraph1.clone().asJson());
+        
+        expect(result1).toEqual(result2);
     });
     it('addPolygraph should evaluate new polygraph', () => {
         const polygraph3 = and()
@@ -43,6 +45,7 @@ describe('polygraph', () => {
         const result = polygraph3.addPolygraph(polygraph1)
             .done()
             .evaluate(person);
-        expect(result).true;
+
+        expect(result).toBe(true);
     });
 });

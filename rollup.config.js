@@ -1,11 +1,11 @@
-import typescript from 'rollup-plugin-typescript2';
-import commonJS from '@rollup/plugin-commonjs';
-import copy from 'rollup-plugin-copy';
+import cleaner from 'rollup-plugin-cleaner';
+import commonJS from '@rollup/plugin-commonjs'
+import copy from 'rollup-plugin-copy'
 import pkg from './package.json';
 import resolve from '@rollup/plugin-node-resolve';
 import sourceMaps from 'rollup-plugin-sourcemaps';
-import cleaner from 'rollup-plugin-cleaner';
-import { terser } from 'rollup-plugin-terser';
+import typescript from 'rollup-plugin-typescript2';
+import terser from '@rollup/plugin-terser';
 
 const banner = `/*! ${pkg.name} v${pkg.version} | author:${pkg.author} | license:${pkg.license} */`;
 

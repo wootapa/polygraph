@@ -9,6 +9,8 @@
     "sourceMap": true,
     "target": "ES5",
     "declaration": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true
   }
 }

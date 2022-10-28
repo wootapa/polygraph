@@ -1,4 +1,7 @@
-import { expect } from 'chai';
+/**
+ * @jest-environment jsdom
+ */
+
 import { and, define, fromJson } from '../src/polygraph';
 
 const person = {
@@ -14,16 +17,14 @@ describe('aliased operators', () => {
             .done()
             .evaluate(person);
 
-        expect(result).true;
+        expect(result).toBe(true);;
     });
 
     it('should survive serialization', () => {
-        const polygraph1 = and().operator('even', 'name')
-            .done();
+        const polygraph1 = and().operator('even', 'name').done();
         const polygraph2 = fromJson(JSON.stringify(polygraph1.asJson()));
 
-        expect(polygraph1.evaluate(person))
-            .eq(polygraph2.evaluate(person));
+        expect(polygraph1.evaluate(person)).toEqual(polygraph2.evaluate(person));
     });
 
     it('should be equivalent', () => {
@@ -38,7 +39,6 @@ describe('aliased operators', () => {
             .done()
             .asJson());
 
-        expect(polygraph1)
-            .eq(polygraph2);
+        expect(polygraph1).toEqual(polygraph2);
     });
 });

@@ -1,4 +1,7 @@
-import { expect } from 'chai';
+/**
+ * @jest-environment jsdom
+ */
+
 import { and } from '../src/polygraph';
 
 describe('getters', () => {
@@ -22,7 +25,7 @@ describe('getters', () => {
                 return score[key];
             });
 
-        expect(result).true;
+        expect(result).toBe(true);
     });
 
     it('should should resolve nested properties', () => {
@@ -40,6 +43,6 @@ describe('getters', () => {
             .done()
             .evaluate(person);
 
-        expect(result).true;
+        expect(result).toBe(true);
     });
 });

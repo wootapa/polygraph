@@ -1,4 +1,7 @@
-import { expect } from 'chai';
+/**
+ * @jest-environment jsdom
+ */
+
 import { and, or, not } from '../src/polygraph';
 
 const person = {
@@ -18,7 +21,7 @@ describe('and', () => {
             .done()
             .evaluate(person);
 
-        expect(result).true;
+        expect(result).toBe(true);
     });
     it('should equal fname but not lname', () => {
         const result = and()
@@ -27,7 +30,7 @@ describe('and', () => {
             .done()
             .evaluate(person);
 
-        expect(result).false;
+        expect(result).toBe(false);
     });
 });
 
@@ -39,7 +42,7 @@ describe('or', () => {
             .done()
             .evaluate(person);
 
-        expect(result).true;
+        expect(result).toBe(true);
     });
     it('should equal fname but not lname but will short-circuit', () => {
         const result = or()
@@ -48,7 +51,7 @@ describe('or', () => {
             .done()
             .evaluate(person);
 
-        expect(result).true;
+        expect(result).toBe(true);
     });
     it('should not equal fname nor lname and street, but street and town', () => {
         const result = or()
@@ -63,7 +66,7 @@ describe('or', () => {
             .done()
             .evaluate(person);
 
-        expect(result).true;
+        expect(result).toBe(true);
     });
     it('should equal fname, not lname and street, but street and town', () => {
         const result = and()
@@ -81,7 +84,7 @@ describe('or', () => {
             .done()
             .evaluate(person);
 
-        expect(result).true;
+        expect(result).toBe(true);
     });
 });
 
@@ -92,7 +95,7 @@ describe('not', () => {
             .done()
             .evaluate(person);
 
-        expect(result).true;
+        expect(result).toBe(true);
     });
 });
 
@@ -112,6 +115,6 @@ describe('combinations', () => {
             .done()
             .evaluate(person);
 
-        expect(result).true;
+        expect(result).toBe(true);
     });
 });
